@@ -9,7 +9,7 @@ Step 2 : Run as Spring boot application
 
 URL to access gilbarcoTestApi
 ```
-Http://localhost:8080/gilbarco/gilbarcoTestApi
+Http://localhost:8080/gilbarco/timestamp
 ```
 
 Output sample:
