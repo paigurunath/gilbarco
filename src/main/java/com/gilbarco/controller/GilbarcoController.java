@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.gilbarco.utils.TimestampUtils;
 
 @CrossOrigin
 @RestController
@@ -32,12 +33,12 @@ public class GilbarcoController {
 		return "Welcome to Gilbarco!!!";
 	}
 
-	@RequestMapping(value="/gilbarcoTestApi", method=RequestMethod.GET)
-	public @ResponseBody JsonNode gilbarcoTestApi(HttpServletRequest request) {
+	@RequestMapping(value="/timestamp", method=RequestMethod.GET)
+	public @ResponseBody JsonNode getTimestamp(HttpServletRequest request) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 			ObjectNode jsonNode =  mapper.createObjectNode();
-			jsonNode.put("timestamp", new Date().toString());
+			jsonNode.put("timestamp", TimestampUtils.getISO8601StringForCurrentDate());
 			jsonNode.put("calls",new Integer(COUNTER++));
 			
 			
